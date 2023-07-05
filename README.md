@@ -57,4 +57,5 @@ sequenceDiagram
 
 # Nota
 - I discovered Lua with this script, don't hesitate to send pull request to improve it (and teach me)
-- 
+- It seems Nabaztag can't use HTTPS. It works in HTTP.
+- As no strong authentication is allowed by our old Nabaztag, please don't exposeson Internet neither the Nabaztag nor HomeAssistant web hook.
