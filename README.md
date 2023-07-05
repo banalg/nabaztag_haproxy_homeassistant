@@ -1,7 +1,6 @@
 # nabaztag_haproxy_homeassistant
 A Lua script to load in HAProxy as a proxy between a Nabaztag and Home Assistant
 
-
 This post allow to command a Nabaztag:tag from Home assistant : [https://community.home-assistant.io/t/planning-to-revive-my-nabaztag-and-control-it-via-ha/38796](https://community.home-assistant.io/t/nabaztag-tag-the-smart-rabbit-is-back/41696)
 It uses : 
 - the Nabaztag HomeAssistant package : https://github.com/pantomax/Home-AssistantConfig/blob/master/packages/nabaztag.yaml
@@ -13,6 +12,8 @@ Home Assistant can be configured to expose web hooks, but the URL format isn't c
 
 My two pences : a simple lua scrit to host in a HAProxy service which catch Nabaztag requests and rewrite them and forward the new ones to Home Assistant.
 I dit it with HAProxy because I already have one on my pfSense appliance, but it should be possible with any reverse proxy (nginx, etc.). I only tested in PfSense 2.7 (July 2023).
+Implemented events : click, dblclick, rfid, ears
+Not implemented events : record (long click on the button which allows to speach to the Nabaztag). It also requires a server to handle the file and convert speach to text. Should be feasible with Home Assistant but I haven't enough time to work on it.
 
 ```mermaid
 sequenceDiagram
