@@ -41,11 +41,10 @@ sequenceDiagram
 1 Create a new "LUA Script" file (in PfSEnse : Service -> HAproxy -> File). Choose the name you want for the file and past the content of the script
 2 You SHOULD create ACL in pfSense to enable the script only on required urls
 3 Create a rewrite rule in HAproxy, wich call the lua script : lua-function: nabaztag_url_rewrite "/api/webhook/nabaztag"
+    - The "nabaztag" in the path "/api/webhook/nabaztag" SHOULD be replaced by another string, depending of the webhook in HomeAssistant. 
+4 Configure HomeAssistant : create webhooks in Automations (for the webhook, use the same string as in the 3.)
 
-# fr
-  This function is the one to call from HAProxy and SHOULD receive an argument to define the HomeAssistant webhook URL.
-  If no path is given, then the default one is use and MUST be defined in HomeAssistant : "/api/webhook/nabaztag"
-  The requests will be sent to domain:port of the original request, on which the path is added.
+# Example of URLs rewrite by the LUA script
   Example 1 : Click
   - Original request sent by the Nabaztag : http://myhomeassistantinstance.fr/local/vl/hooks/click.php
   - rewritten URL : http://myhomeassistantinstance.fr/api/webhook/nabaztag?action=click
