@@ -38,11 +38,12 @@ sequenceDiagram
 ```
 
 ## How to configure :
-1 Create a new "LUA Script" file (in PfSEnse : Service -> HAproxy -> File). Choose the name you want for the file and past the content of the script
-2 You SHOULD create ACL in pfSense to enable the script only on required urls
-3 Create a rewrite rule in HAproxy, wich call the lua script : lua-function: nabaztag_url_rewrite "/api/webhook/nabaztag"
-    - The "nabaztag" in the path "/api/webhook/nabaztag" SHOULD be replaced by another string, depending of the webhook in HomeAssistant. 
-4 Configure HomeAssistant : create webhooks in Automations (for the webhook, use the same string as in the 3.)
+1. Configure the Nabaztag with the new firmware as explaned in the Nabaztag serverless github.
+2. Configure HomeAssistant : create webhooks in Automations (note the webhook URL which will be requested for the 5.)
+3. Create a new "LUA Script" file (in PfSEnse : Service -> HAproxy -> File). Choose the name you want for the file and past the content of the script
+4. You SHOULD create ACL in pfSense to enable the script only on required urls and avoid side effects
+5. Create a rewrite rule in HAproxy, wich call the lua script : lua-function: nabaztag_url_rewrite "/api/webhook/nabaztag"
+    - The "nabaztag" in the path "/api/webhook/nabaztag" SHOULD be replaced by another string, depending of the webhook in HomeAssistant.
 
 # Example of URLs rewrite by the LUA script
   Example 1 : Click
